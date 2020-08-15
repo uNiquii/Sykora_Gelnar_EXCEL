@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import org.apache.poi.openxml4j.exceptions.InvalidOperationException;
 
-public class ExcelTestTEST {
+public class ExcelMain {
 	
 	@SuppressWarnings("static-access")
 	public static void main(String[] args) throws IOException {
@@ -32,24 +32,7 @@ public class ExcelTestTEST {
 		
 		System.out.printf("Prvočísla ve Vámi vybraném EXCEL souboru");
 				
-		int maxCEL = ExcelTest.getCellCount();
-		int maxROW = ExcelTest.getRowCount();
-		int prvocislo = 0;
-		String test = "";
-		
-		for (int i = 0; i < maxROW; i++) {
-			for (int j = 0; j < maxCEL; j++) {
-				if ((excel.getCellData(i, j)) != "" && (excel.getCellData(i, j)) != null) {
-				test = (excel.getCellData(i, j)).toString();
-			    try {
-			    	prvocislo = Integer.parseInt(test);
-			    } 
-			    catch (NumberFormatException e) {}
-			    
-			    if (((prvocislo > 1) && (prvocislo % 2 != 0) && (prvocislo % 3 != 0) && (prvocislo % 5 != 0)) || prvocislo == 2 || prvocislo == 3 ) { 
-			    	System.out.printf("%d\n", prvocislo);}
-			    }
-			}			
-		}									
+		excel.prvocisla();	
+
 	}
 }
