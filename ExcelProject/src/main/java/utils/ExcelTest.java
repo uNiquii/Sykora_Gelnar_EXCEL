@@ -41,8 +41,26 @@ public class ExcelTest {
 		return maxCell;
 			
 }
-	
-	
-
+	public static void prvocisla() throws IOException {
+		int maxCEL = getCellCount();
+		int maxROW = getRowCount();
+		int prvocislo = 0;
+		String test = "";
+		
+		for (int i = 0; i < maxROW; i++) {
+			for (int j = 0; j < maxCEL; j++) {
+				if ((getCellData(i, j)) != "" && (getCellData(i, j)) != null) {
+				test = (getCellData(i, j)).toString();
+			    try {
+			    	prvocislo = Integer.parseInt(test);
+			    } 
+			    catch (NumberFormatException e) {}
+			    
+			    if (((prvocislo > 1) && (prvocislo % 2 != 0) && (prvocislo % 3 != 0) && (prvocislo % 5 != 0)) || prvocislo == 2 || prvocislo == 3 ) { 
+			    	System.out.printf("%d\n", prvocislo);}
+			    }
+			}			
+		}		
+	}	
 
 }
